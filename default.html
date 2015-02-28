@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="astropie.js"></script>
+    </head>
+    <body>
+        <div id="top" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 105px;">
+            <img src="images/astropie_title.png" style="position: absolute; top: 0%; left: 25%; width: 50%; height: 100%;"/>
+        </div>
+
+        <div id="loading" style="position: absolute; top: 25%; left: 25%; width: 50%; height: 50%; display: none; text-align: center;">
+            <H2>Loading...</H2>
+        </div>
+
+        <div id="redoLogin" style="position: absolute; top: 25%; left: 25%; width: 50%; height: 50%; display: none;">
+            <H2>Without permission to everyone's birthday, I can't make you a pie. Please login again and give me permission to make you a pie</H2><br>
+            <fb:login-button show-faces="true" size="xlarge" width="200" max-rows="2" scope="user_birthday,friends_birthday"></fb:login-button>
+        </div>
+
+        <div id="splash" style="position: absolute; top: 110px; left: 25%; width: 50%; height: 80%; display: none;">
+            <div id="splash_header" style="position: relative; top: 10px; left: 0px; width: 100%; text-align: center;">
+                <P><H1>Welcome to AstroPie -- the site that puts all your astrology answers into one pie</H1></P>
+            </div>
+            <div id="splash_fblogin" style="position: relative; margin: 0 auto; height: 30%; width: 50%;"> 
+                <fb:login-button show-faces="true" size="xlarge" width="200" max-rows="2" scope="user_birthday,friends_birthday"></fb:login-button>
+            </div>
+        </div> 
+
+        <div id="tableview" style="position: absolute; top: 110px; left: 25%; width: 50%; height: 80%; display: none;">
+            <div id="tabletopdiv" style="width: 100%">
+                <table id="tabletop" style="width: 100%">
+                    <tr style="width: 100%">
+                        <td id="tablesignheader" style="width: 50%; font-size: 3em"></td>
+                        <td style="width:50%"><button id="backToPie" style="width: 50%; height: 100%" type="button">Back</button></td></tr>
+                </table>
+            </div>
+            <table id="friendtable" border="0">
+            </table>
+        </div> 
+
+
+        <div id="center" style="position: absolute; top: 110px; left: 0px; width: 100%; height: 80%; display: none; ">
+            <table border="0" style="width: 25%; height: 50%; text-align: center;">
+                <tr><td id="sign_td"></td></tr>
+                <tr><td id="sign_img"></td></tr>
+            </table>
+            <div id="zodiaccenter" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 90%"></div>
+            <div id="bottomcenter" style="position: absolute; bottom: 0px; left: 25%; width: 50%; height: 10%;">
+                <table style="position: relative; top: 0px; left: 0px; width: 100%;">
+                    <tr>
+                    <td id="guysbutton" style="width: 25%; background-color: blue; font-color: yellow; text-align: center">Only Guys</td>
+                    <td id="galsbutton" style="width: 25%; background-color: pink; font-color: yellow; text-align: center">Only Gals</td>
+                    <td id="bibutton" style="width: 25%; background-color: purple; font-color: yellow; text-align: center">Both</td>
+            </div> 
+       </div>
+
+        <div id="bottom" style="position: absolute; bottom: 0px; left: 0px; width: 100%; height: 105px;">
+            <table style="position: relative; top: 0px; left: 0px; width: 100%;">
+                <tr>
+                <td style="position: relative; left: 75%; width: 25%">
+                    <div class="addthis_toolbox addthis_default_style">
+                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                        <a class="addthis_button_tweet"></a>
+                        <a class="addthis_button_pinterest_pinit"></a>
+                        <a class="addthis_counter addthis_pill_style"></a>
+                    </div>
+                </td>
+                </tr>
+            </table>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-519fd38058c3ae9f"></script>
+       </div>
+
+        <div id="fb-root"></div>
+        <script>
+              window.fbAsyncInit = function() {
+              // init the FB JS SDK
+              FB.init({
+                      appId      : '334608596642501',                        // App ID from the app dashboard
+                      channelUrl : '//theastropie.appspot.com/channel.html', // Channel file for x-domain comms
+                      status     : true,                                 // Check Facebook Login status
+                      xfbml      : true                                  // Look for social plugins on the page
+                      });
+
+                      // Additional initialization code such as adding Event Listeners goes here
+                      transition( States.Begin );
+             };
+
+              // Load the SDK asynchronously
+              (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "//connect.facebook.net/en_US/all.js";
+               fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
+    </body>
+</html>
